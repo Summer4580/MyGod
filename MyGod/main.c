@@ -31,7 +31,6 @@ int main(int argc, const char * argv[])
             }
         for(i=0;i<n;i++)
             printf("%d\t",a[i]);
-        printf("\n");
     }
     return 0;
 }
