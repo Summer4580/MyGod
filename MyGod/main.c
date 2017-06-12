@@ -11,26 +11,42 @@
 int main(int argc, const char * argv[])
 {
     // insert code here...
-    int i,j,temp,n;
+    int j,i,temp;
     int a[10001];
-    while(scanf("%d",&n)!=EOF)
+    FILE *fp1;
+    fp1 =fopen("Date","r");
+    if(fp1==NULL)
     {
-        for(i=0;i<n;i++)
-        {
-            scanf("%d",&a[i]);
-        }
-        for(i=0;i<n;i++)
-            for(j=0;j<n-i-1;j++)
-            {
-                if(a[j]>a[j+1])
-                {
-                    temp = a[j];
-                    a[j] = a[j+1];
-                    a[j+1] = temp;
-                }
-            }
-        for(i=0;i<n;i++)
-            printf("%d\t",a[i]);
+        printf("打开文件失败!\n");
     }
+    int x=0;
+    int n=0;
+    x = fgetc(fp1);
+    while(x!=EOF)
+    {
+        a[n] = x;
+        putchar(x);
+        x = fgetc(fp1);
+        n++;
+    }
+    for(i=0;i<n;i++)
+        for(j=0;j<n-i-1;j++)
+        {
+            if(a[j]>a[j+1])
+            {
+                temp = a[j];
+                a[j] = a[j+1];
+                a[j+1] = temp;
+            }
+        }
+    FILE *fp2;
+    fp2 = fopen("Put","w+");
+    while(n!=0)
+    {
+        fputc(a[n],fp2);
+        n--;
+    }
+    fclose(fp1);
+    fclose(fp2);
     return 0;
 }
