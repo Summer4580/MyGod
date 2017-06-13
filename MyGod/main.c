@@ -39,10 +39,12 @@ int main(int argc, const char * argv[])
         }
     FILE *fp2;
     fp2 = fopen("//Users//20161104580X//Desktop//我的文件//我的项目//MyGod//Put.txt","w+");
+    printf("\n");
     int k=0;
     while(k<n)
     {
         fprintf(fp2,"%d ",a[k]);
+        printf("%d<",a[k]);
         k++;
     }
     fclose(fp2);
