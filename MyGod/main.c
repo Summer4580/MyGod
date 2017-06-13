@@ -12,23 +12,21 @@ int main(int argc, const char * argv[])
 {
     // insert code here...
     int j,i,temp;
-    int a[10001];
+    int a[10001]={0};
     FILE *fp1;
-    fp1 =fopen("Date","r");
+    fp1 =fopen("//Users//20161104580X//Desktop//我的文件//我的项目//MyGod//Date.txt","r+");
     if(fp1==NULL)
     {
         printf("打开文件失败!\n");
+        return 0;
     }
-    int x=0;
     int n=0;
-    x = fgetc(fp1);
-    while(x!=EOF)
+    while(fscanf(fp1,"%d",&a[n])!=EOF)
     {
-        a[n] = x;
-        putchar(x);
-        x = fgetc(fp1);
+        printf("%d-",a[n]);
         n++;
     }
+    fclose(fp1);
     for(i=0;i<n;i++)
         for(j=0;j<n-i-1;j++)
         {
@@ -40,13 +38,13 @@ int main(int argc, const char * argv[])
             }
         }
     FILE *fp2;
-    fp2 = fopen("Put","w+");
-    while(n!=0)
+    fp2 = fopen("//Users//20161104580X//Desktop//我的文件//我的项目//MyGod//Put.txt","w+");
+    int k=0;
+    while(k<n)
     {
-        fputc(a[n],fp2);
-        n--;
+        fprintf(fp2,"%d ",a[k]);
+        k++;
     }
-    fclose(fp1);
     fclose(fp2);
     return 0;
 }
