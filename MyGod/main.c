@@ -17,7 +17,7 @@ int main(int argc, const char * argv[])
     fp1 =fopen("//Users//20161104580X//Desktop//我的文件//我的项目//MyGod//Date.txt","r+");
     if(fp1==NULL)
     {
-        printf("打开文件失败!\n");
+        printf("打开文件失败! \n");
         return 0;
     }
     int n=0;
